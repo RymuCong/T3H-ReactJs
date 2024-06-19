@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.resume {
+    width: 80%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+img {
+    height: 500px;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.photo {
+    order: 1;
+    flex: 0 0 150px; /* Adjust size as needed */
+    padding-right: 20px;
+}
+
+.photo img {
+    width: 100%; /* Adjust based on actual image size */
+    height: auto;
+}
+
+.details {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.details h1 {
+    font-size: 24px;
+    color: navy;
+    margin: 0 0 10px 0;
+}
+
+.details p {
+    font-size: 16px;
+    color: #666;
+    margin: 4px 0;
+}
+
+.info h1 {
+    color: navy;
+}
+
+.info, .experience, .education, .skills, .certificates, .languages, .computer-skills {
+    margin-top: 20px;
+}
+
+h2 {
+    border-bottom: 2px solid navy;
+    padding-bottom: 3px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 5px 0;
+}
