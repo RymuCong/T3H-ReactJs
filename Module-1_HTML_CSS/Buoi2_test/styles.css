@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    color: #333;
+}
+
+.resume {
+    width: 80%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.header h1 {
+    font-size: 24px;
+    color: navy;
+    text-align: center;
+    border-bottom: 4px solid navy;
+    padding-bottom: 3px;
+}
+
+.header p {
+    font-size: 16px;
+    color: #666;
+}
+
+h2 {
+    border-bottom: 4px solid navy;
+    padding-bottom: 3px;
+}
+
+ul {
+    padding: 5px 5px 5px 30px;
+}
+
+.key-expertise ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.key-expertise li {
+    flex: 1 0 50%;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.job h3 {
+    color: navy;
+    margin-top: 10px;
+}
+
+.job p {
+    font-style: italic;
+    color: #555;
+}
