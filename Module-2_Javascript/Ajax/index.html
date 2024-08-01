@@ -29,23 +29,52 @@
         <div class="row">
             <div class="col-4 mb-5">
                 <input class="form-control" id="search" name="search" placeholder="Search...." type="text"/>
-                <button class="btn btn-primary mt-2" onclick="searchProduct()" type="button">Search</button>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 mb-4">
+                <label for="limit">Limit:</label>
+                <select class="form-control" id="limit">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="12" selected>12</option>
+                    <option value="20">20</option>
+                    <option value="32">32</option>
+                </select>
+            </div>
+            <div class="col-4 mb-4">
+                <label for="sort">Sort By:</label>
+                <select class="form-control" id="sort">
+                    <option value="price" selected>Giá</option>
+                    <option value="name">Tên</option>
+                </select>
+            </div>
+            <div class="col-4 mb-4">
+                <label for="order">Order:</label>
+                <select class="form-control" id="order">
+                    <option value="asc" selected>Tăng dần</option>
+                    <option value="desc">Giảm dần</option>
+                </select>
+            </div>
+            <div class="col-4 mb-4">
+               <button class="btn btn-primary mt-2" onclick="searchProduct(1)" type="button">Search</button>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row" id="list-products">
-
-
         </div>
+    </div>
+    <div class="container">
+        <nav aria-label="Page navigation">
+            <ul class="pagination" id="pagination">
+            </ul>
+        </nav>
     </div>
 </main>
 
 <script type="text/javascript">
-    // setTimeout(function(){ // call back function
-
-    // },1000);
-
     // URL -> chứa data cần dùng dạng JSON  -> Rest api (HTTP Service)
     // có 2 cách: 1- sử dụng callback function   cách 2- sử dụng xử lý bất đồng bộ
     // step 1: call api --> get data
@@ -66,38 +95,19 @@
         })
 
     // Render products list
-    var url2 = `https://dummyjson.com/products`;
-    // step 1
-    fetch(url2).then(function (rs) {
-        return rs.json();
-    })
-        .then(function (rs) {
-            var products = rs.products;
-            var list = document.getElementById("list-products");
-            for (var p of products) {
-                var p_html = `<div class="col-3 mb-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="${p.thumbnail}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">${p.title}</h5>
-                          <p class="card-text">${p.description}</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                      </div>
-                </div>`;
-                list.innerHTML += p_html;
-            }
-        })
-
-    function searchProduct() {
+    function searchProduct(page) {
         var keyword = document.getElementById("search").value;
-        var url_search = `https://dummyjson.com/products/search?q=${keyword}`;
+        var limit = document.getElementById("limit").value;
+        var sort = document.getElementById("sort").value;
+        var order = document.getElementById("order").value;
+        var url_search = `https://dummyjson.com/products/search?q=${keyword}&limit=${limit}&sortBy=${sort}&order=${order}&page=${page}`;
 
         fetch(url_search).then(function (rs) {
             return rs.json();
         })
             .then(function (rs) {
                 var products = rs.products;
+                var total = rs.total;
                 var list = document.getElementById("list-products");
                 list.innerHTML = ''; // Clear existing products
                 for (var p of products) {
@@ -113,8 +123,25 @@
             </div>`;
                     list.innerHTML += p_html;
                 }
+                renderPagination(total, limit, page);
             });
     }
+
+    function renderPagination(total, limit, currentPage) {
+        var totalPages = Math.ceil(total / limit);
+        var pagination = document.getElementById("pagination");
+        pagination.innerHTML = '';
+
+        for (var i = 1; i <= totalPages; i++) {
+            var pageItem = `<li class="page-item ${i === currentPage ? 'active' : ''}">
+                                <a class="page-link" href="#" onclick="searchProduct(${i})">${i}</a>
+                            </li>`;
+            pagination.innerHTML += pageItem;
+        }
+    }
+
+    // Initial load
+    searchProduct(2);
 </script>
 </body>
 </html>
