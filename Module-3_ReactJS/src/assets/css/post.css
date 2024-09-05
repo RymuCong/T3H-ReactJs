@@ -1,0 +1,45 @@
+.post-container {
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.post-container img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.post-container p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.post-container .info {
+    font-size: 1rem;
+    color: #777;
+    text-align: center;
+}
+
+.post-container .info h5 {
+    margin: 10px 0;
+}
+
+.post-container .info h4 {
+    margin: 10px 0;
+    font-weight: bold;
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { blogPosts } from "../data";
+import "../assets/css/posts.css";
 
 const Posts = () => {
   return (

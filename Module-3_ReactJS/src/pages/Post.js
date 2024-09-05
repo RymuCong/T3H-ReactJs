@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { blogPosts } from "../data";
+import "../assets/css/post.css";
 
 const Post = () => {
     const { index } = useParams();
