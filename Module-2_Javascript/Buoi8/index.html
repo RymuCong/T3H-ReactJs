@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BTVN Buổi 8</title>
+</head>
+<body>
+
+<script>
+    function fibonacci(n) {
+        if (n < 0) return document.write("Số nhập vào không hợp lệ"); // Trường hợp n âm không hợp lệ
+
+        let a = 0, b = 1;
+        while (b <= n) {
+            let temp = b;
+            b = a + b;
+            a = temp;
+        }
+        return document.write("Cận duới của " + n + " trong dãy Fibonacci là: " + a + "<br>");
+    }
+
+    let num = +prompt("Nhập vào một số nguyên: ");
+    fibonacci(num);
+</script>
+
+</body>
+</html>

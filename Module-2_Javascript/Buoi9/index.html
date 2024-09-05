@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buổi 9</title>
+</head>
+<body>
+
+<script>
+    function randomNumber() {
+        const numbers = new Set();
+        while (numbers.size < 6) {
+            numbers.add(Math.floor(Math.random() * 56));
+        }
+        return Array.from(numbers);
+    }
+
+    function checkPrize(playerNumbers, winningNumbers) {
+        const matchedNumbers = playerNumbers.filter(num => winningNumbers.includes(num)).length;
+        switch (matchedNumbers) {
+            case 3:
+                return 'Trúng 3 số: 100K';
+            case 4:
+                return 'Trúng 4 số: 1M';
+            case 5:
+                return 'Trúng 5 số: 10M';
+            case 6:
+                return 'Trúng 6 số: Jackpot 10 tỷ';
+            default:
+                return 'Không trúng thưởng';
+        }
+    }
+
+    // Ví dụ sử dụng
+    const winningNumbers = randomNumber();
+   document.write('Số trúng thưởng: ' + winningNumbers + '<br>');
+
+    const playerNumbers = randomNumber();
+    document.write('Số người chơi chọn: ' + playerNumbers + '<br>');
+
+    const prize = checkPrize(playerNumbers, winningNumbers);
+    document.write('Giải thưởng: ' + prize + '<br>');
+</script>
+</body>
+</html>
