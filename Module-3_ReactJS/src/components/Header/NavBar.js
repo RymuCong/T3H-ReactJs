@@ -21,6 +21,8 @@ const NavBar = () => {
 
                     {/*<Link to="/contact-us" className="nav-item nav-link">Contact Us</Link>*/}
                     <Link to="/blog" className="nav-item nav-link">Blogs</Link>
+                    <Link to="/survey" className="nav-item nav-link">Survey</Link>
+                    <Link to="/register" className="nav-item nav-link">Register</Link>
                 </div>
                 <div className="d-none d-lg-flex ms-2">
                     <a className="btn-sm-square bg-white rounded-circle ms-3" href="">
